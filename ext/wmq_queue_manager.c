@@ -411,9 +411,8 @@ VALUE QueueManager_connect(VALUE self)
         pqm->MQDISC(&pqm->hcon, &pqm->comp_code, &pqm->reason_code);
     }
 
-    pqm->MQCONNX(
+    pqm->MQCONN(
             RSTRING_PTR(name),       /* queue manager                  */
-            &pqm->connect_options,   /* connection options             */
             &pqm->hcon,              /* connection handle              */
             &pqm->comp_code,         /* completion code                */
             &pqm->reason_code);      /* connect reason code            */
