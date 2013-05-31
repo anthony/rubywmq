@@ -44,7 +44,7 @@ task :gem  do |t|
     spec.requirements << 'WebSphere MQ v5.3, v6 or v7 Client or Server with Development Kit'
   end
   p gemspec.files
-  Gem::Package.build gemspec
+  Gem::Builder.new(gemspec).build
 end
 
 desc "Build a binary gem including pre-compiled binary files for re-distribution"
@@ -77,7 +77,7 @@ task :binary  do |t|
     spec.add_development_dependency 'shoulda'
     spec.requirements << 'WebSphere MQ v5.3, v6 or v7 Client or Server with Development Kit'
   end
-  Gem::Package.build gemspec
+  Gem::Builder.new(gemspec).build
 end
 
 desc "Run Test Suite"
